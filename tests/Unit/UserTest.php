@@ -38,18 +38,18 @@ class UserTest extends TestCase
     }
 
 
-    public function test_delete_user()
-    {
-        $user = User::factory()->count(1)->make();
+    // public function test_delete_user()
+    // {
+    //     $user = User::factory()->count(1)->make();
 
-        $user = User::first();
+    //     $user = User::first();
 
-        if ($user) {
-            $user->delete();
-        }
+    //     if ($user) {
+    //         $user->delete();
+    //     }
 
-        $this->assertTrue($user == null);
-    }
+    //     $this->assertTrue($user == null);
+    // }
 
 
     // This is a test that'll only work once since a user email must be unique
@@ -66,4 +66,20 @@ class UserTest extends TestCase
     //         $response->assertRedirect('/home');
     //     }
 
+
+    public function test_database()
+    {
+        $this->assertDatabaseHas('users', [
+            'name' => 'Johnny'
+        ]);
+    }
+
+
+    // Make sure user does not exist in users table
+    public function test_database_missing()
+    {
+        $this->assertDatabaseMissing('users', [
+            'name' => 'NotJohnny'
+        ]);
+    }
 }
