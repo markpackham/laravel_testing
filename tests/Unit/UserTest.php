@@ -82,4 +82,15 @@ class UserTest extends TestCase
             'name' => 'NotJohnny'
         ]);
     }
+
+
+    public function test_if_seeders_works()
+    {
+        // Seed all seeders in the Seeders folder
+        // it runs like "php artisan db:seed"
+        $this->seed();
+
+        // We aren't making any assertion so the test suite response is "risked"
+        // ! if seeders works → This test did not perform any assertions
+    }
 }
