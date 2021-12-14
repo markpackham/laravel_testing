@@ -2,7 +2,9 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+// This doesn't recognize the "get" method so we use Tests\TestCase
+// use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class UserTest extends TestCase
 {
@@ -11,8 +13,11 @@ class UserTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+
+    public function test_login_form()
     {
-        $this->assertTrue(true);
+        $response = $this->get('/login');
+
+        $response->assertStatus(200);
     }
 }
