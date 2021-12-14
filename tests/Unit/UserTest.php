@@ -36,4 +36,18 @@ class UserTest extends TestCase
 
         $this->assertTrue($user1->name != $user2->name);
     }
+
+
+    public function test_delete_user()
+    {
+        $user = User::factory()->count(1)->make();
+
+        $user = User::first();
+
+        if ($user) {
+            $user->delete();
+        }
+
+        $this->assertTrue($user == null);
+    }
 }
