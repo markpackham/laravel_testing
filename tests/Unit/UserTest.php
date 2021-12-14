@@ -50,4 +50,20 @@ class UserTest extends TestCase
 
         $this->assertTrue($user == null);
     }
+
+
+    // This is a test that'll only work once since a user email must be unique
+    // So only 1 user can register with it
+    //     public function test_it_stores_new_users()
+    //     {
+    //         $response = $this->post('/register', [
+    //             'name' => 'password123',
+    //             'email' => 'password123@email.com',
+    //             'password' => 'password123',
+    //             'password_confirmation' => 'password123',
+    //         ]);
+
+    //         $response->assertRedirect('/home');
+    //     }
+
 }
